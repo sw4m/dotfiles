@@ -39,11 +39,10 @@ return {
 				neoscroll.ctrl_u()
 				neoscroll.zz()
 			end)
-			vim.keymap.set("n", "<C-d>", function ()
+			vim.keymap.set("n", "<C-d>", function()
 				neoscroll.ctrl_d()
 				neoscroll.zz()
-				
-			end
+			end)
 		end,
 	},
 }
