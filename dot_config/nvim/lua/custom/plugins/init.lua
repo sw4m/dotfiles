@@ -30,6 +30,20 @@ return {
 	},
 	{
 		"karb94/neoscroll.nvim",
-		opts = { duration_multiplier = 0.5 },
+		config = function()
+			neoscroll = require("neoscroll").setup({
+				duration_multiplier = 0.5,
+			})
+
+			vim.keymap.set("n", "<C-u>", function()
+				neoscroll.ctrl_u()
+				neoscroll.zz()
+			end)
+			vim.keymap.set("n", "<C-d>", function ()
+				neoscroll.ctrl_d()
+				neoscroll.zz()
+				
+			end
+		end,
 	},
 }
