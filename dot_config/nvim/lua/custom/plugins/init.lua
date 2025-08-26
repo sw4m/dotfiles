@@ -28,22 +28,4 @@ return {
 	{
 		"Pocco81/auto-save.nvim",
 	},
-	{
-		"karb94/neoscroll.nvim",
-		config = function()
-			neoscroll = require("neoscroll")
-			neoscroll.setup({
-				duration_multiplier = 0.5,
-			})
-
-			vim.keymap.set("n", "<C-u>", function()
-				neoscroll.ctrl_u({ duration = 500 })
-				neoscroll.zz({ duration = 500 })
-			end)
-			vim.keymap.set("n", "<C-d>", function()
-				neoscroll.ctrl_d({ duration = 500 })
-				neoscroll.zz({ duration = 500 })
-			end)
-		end,
-	},
 }
