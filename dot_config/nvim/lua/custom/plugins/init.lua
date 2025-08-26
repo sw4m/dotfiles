@@ -37,12 +37,12 @@ return {
 			})
 
 			vim.keymap.set("n", "<C-u>", function()
-				neoscroll.ctrl_u({})
-				neoscroll.zz({})
+				neoscroll.ctrl_u({ duration = 500 })
+				neoscroll.zz({ duration = 500 })
 			end)
 			vim.keymap.set("n", "<C-d>", function()
-				neoscroll.ctrl_d({})
-				neoscroll.zz({})
+				neoscroll.ctrl_d({ duration = 500 })
+				neoscroll.zz({ duration = 500 })
 			end)
 		end,
 	},
