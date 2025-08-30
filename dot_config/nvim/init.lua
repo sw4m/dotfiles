@@ -20,6 +20,10 @@
 =====================================================================
 -- ]]
 
+-- NEOVIDE SETTINGS
+
+vim.g.neovide_cursor_animation_length = 0
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
