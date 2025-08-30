@@ -2,7 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-EDITOR='nvim'
+EDITOR='neovide'
 
 setopt autocd
 bindkey -v
