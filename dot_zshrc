@@ -1,4 +1,3 @@
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -6,11 +5,8 @@ EDITOR='nvim'
 
 setopt autocd
 bindkey -v
-# End of lines configured by zsh-newuser-install
-
 
 source /usr/share/zsh-antidote/antidote.zsh 
-
 antidote load
 
 function y() {
@@ -21,8 +17,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-
-
 # Replace ls with exa
 alias la='exa -al --color=always --group-directories-first --icons'     # preferred listing
 alias ls='exa -a --color=always --group-directories-first --icons'      # all files and dirs
@@ -30,7 +24,6 @@ alias ll='exa -l --color=always --group-directories-first --icons'      # long f
 alias lt='exa -aT --color=always --group-directories-first --icons'     # tree listing
 alias l.='exa -ald --color=always --group-directories-first --icons .*' # show only dotfiles
 
-# Replace some more things with better alternatives
 alias cat='bat --style header --style snip --style changes --style header'
 
 # Common use
