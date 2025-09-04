@@ -47,5 +47,4 @@ return {
 			require("nordic").load()
 		end,
 	},
-	{ " wolandark/vim-live-server/tree/master/plugin/vim-live-server.vim" },
 }
