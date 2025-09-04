@@ -47,4 +47,7 @@ return {
 			require("nordic").load()
 		end,
 	},
+	{
+		"lambdalisue/vim-suda",
+	},
 }
