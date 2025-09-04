@@ -48,6 +48,9 @@ return {
 		end,
 	},
 	{
-		"lambdalisue/vim-suda",
+		"masajinobe-ef/suda.nvim",
+		config = function()
+			require("suda").setup({})
+		end,
 	},
 }
