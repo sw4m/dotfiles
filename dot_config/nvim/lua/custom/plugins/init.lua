@@ -53,4 +53,5 @@ return {
 			require("suda").setup({})
 		end,
 	},
+	{ "windwp/nvim-ts-autotag" },
 }
