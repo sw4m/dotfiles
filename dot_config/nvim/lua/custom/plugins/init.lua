@@ -47,5 +47,5 @@ return {
 			require("nordic").load()
 		end,
 	},
-	{ " wolandark/vim-live-server.git" },
+	{ " wolandark/vim-live-server" },
 }
