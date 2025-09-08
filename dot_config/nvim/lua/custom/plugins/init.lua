@@ -54,4 +54,5 @@ return {
 		end,
 	},
 	{ "windwp/nvim-ts-autotag" },
+	{ "ray-x/web-tools.nvim" },
 }
