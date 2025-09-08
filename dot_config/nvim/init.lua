@@ -841,7 +841,7 @@ require("lazy").setup({
 					enable = false,
 				},
 				scroll = {
-					timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
+					timing = animate.gen_timing.linear({ duration = 50, unit = "total" }),
 				},
 			})
 			-- Simple and easy statusline.
