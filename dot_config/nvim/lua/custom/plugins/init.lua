@@ -49,4 +49,5 @@ return {
 	},
 	{ "windwp/nvim-ts-autotag" },
 	{ "ray-x/web-tools.nvim" },
+	{ "github/copilot.vim" },
 }
