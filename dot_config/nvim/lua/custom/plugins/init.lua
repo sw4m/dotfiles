@@ -50,7 +50,7 @@ return {
 	{
 		"lambdalisue/vim-suda",
 		config = function()
-			require("vim-suda").setup()
+			require("suda").setup()
 			vim.g.suda_smart_edit = 1
 		end,
 	},
