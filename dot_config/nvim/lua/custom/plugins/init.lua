@@ -47,13 +47,6 @@ return {
 			require("nordic").load()
 		end,
 	},
-	{
-		"lambdalisue/vim-suda",
-		config = function()
-			require("suda.vim").setup()
-			vim.g.suda_smart_edit = 1
-		end,
-	},
 	{ "windwp/nvim-ts-autotag" },
 	{ "ray-x/web-tools.nvim" },
 }
