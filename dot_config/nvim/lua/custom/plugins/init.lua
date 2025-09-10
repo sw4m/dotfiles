@@ -49,4 +49,9 @@ return {
 	},
 	{ "windwp/nvim-ts-autotag" },
 	{ "ray-x/web-tools.nvim" },
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+	},
 }
