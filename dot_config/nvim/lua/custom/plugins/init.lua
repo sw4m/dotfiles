@@ -61,11 +61,12 @@ return {
 			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
 			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
 		},
+		event = "BufEnter",
 		init = function()
 			vim.g.barbar_auto_setup = false
 		end,
+		opts = {},
 	},
-	---@type LazySpec
 	{
 		"mikavilpas/yazi.nvim",
 		version = "*", -- use the latest stable version
