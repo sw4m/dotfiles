@@ -1,4 +1,3 @@
-return {
 	{ "ThePrimeagen/vim-be-good" },
 	{
 		"mrjones2014/smart-splits.nvim",
