@@ -874,6 +874,9 @@ require("lazy").setup({
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
+		opts = {
+			mode = "topline",
+		},
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
