@@ -1,3 +1,4 @@
+return {
 	{ "ThePrimeagen/vim-be-good" },
 	{
 		"mrjones2014/smart-splits.nvim",
@@ -53,7 +54,7 @@
 		cmd = "Copilot",
 		event = "InsertEnter",
 		config = function()
-			require("copilot").setup({})
+			require("copilot")
 		end,
 	},
 
