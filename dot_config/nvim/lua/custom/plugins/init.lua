@@ -122,10 +122,4 @@ return {
 			vim.g.suda_smart_edit = 1
 		end,
 	},
-	{
-		"goolord/alpha-nvim",
-		config = function()
-			require("alpha").setup(require("alpha.themes.dashboard").config)
-		end,
-	},
 }
