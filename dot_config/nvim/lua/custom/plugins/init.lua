@@ -29,17 +29,6 @@ return {
 		"Pocco81/auto-save.nvim",
 	},
 	{
-		"startup-nvim/startup.nvim",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope-file-browser.nvim",
-		},
-		config = function()
-			require("startup").setup()
-		end,
-	},
-	{
 		"AlexvZyl/nordic.nvim",
 		lazy = false,
 		priority = 1000,
@@ -131,6 +120,12 @@ return {
 		"lambdalisue/vim-suda",
 		init = function()
 			vim.g.suda_smart_edit = 1
+		end,
+	},
+	{
+		"goolord/alpha-nvim",
+		config = function()
+			require("alpha").setup(require("alpha.themes.dashboard").config)
 		end,
 	},
 }
