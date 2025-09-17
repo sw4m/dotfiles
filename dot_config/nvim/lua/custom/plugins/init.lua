@@ -128,7 +128,7 @@ return {
 			vim.keymap.set(
 				"n",
 				"<f2>",
-				"<cmd>vimterm#toggle()<CR>",
+				"<cmd>call vimterm#toggle()<CR>",
 				{ desc = "Open bottom terminal", expr = true, noremap = true }
 			)
 		end,
