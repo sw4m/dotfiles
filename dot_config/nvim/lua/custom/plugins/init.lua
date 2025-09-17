@@ -125,7 +125,7 @@ return {
 	{
 		"wvffle/vimterm",
 		init = function()
-			vim.keymap.set("n", "<f2>", "vimterm#toggle()", { expr = true, noremap = true })
+			vim.keymap.set("n", "<f2>", ":call vimterm#toggle()<CR>", { expr = true, noremap = true })
 		end,
 	},
 }
