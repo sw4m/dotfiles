@@ -125,7 +125,12 @@ return {
 	{
 		"wvffle/vimterm",
 		init = function()
-			vim.keymap.set("n", "<f2>", "<cmd>call vimterm#toggle()<CR>", { expr = true, noremap = true })
+			vim.keymap.set(
+				"n",
+				"<f2>",
+				"<cmd>vimterm#toggle()<CR>",
+				{ desc = "Open bottom terminal", expr = true, noremap = true }
+			)
 		end,
 	},
 }
