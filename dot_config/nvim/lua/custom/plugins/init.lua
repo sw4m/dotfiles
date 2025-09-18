@@ -128,4 +128,9 @@ return {
 			{ "<F2>", "<cmd>call vimterm#toggle()<cr>", mode = "n", silent = true, noremap = true },
 		},
 	},
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		opts = {},
+	},
 }
