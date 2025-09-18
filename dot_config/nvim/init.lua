@@ -593,6 +593,7 @@ require("lazy").setup({
           capabilities = capabilities,
           filetypes = {"html", "twig", "hbs", "handlebars", "php", "blade", "tsx", "jsx"}
         },
+        tailwindcss = {},
         
 				-- clangd = {},
 				-- gopls = {},
