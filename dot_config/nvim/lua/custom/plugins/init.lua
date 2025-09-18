@@ -128,4 +128,15 @@ return {
 			{ "<F2>", "<cmd>call vimterm#toggle()<cr>", mode = "n", silent = true, noremap = true },
 		},
 	},
+	{
+		"luckasRanarison/tailwind-tools.nvim",
+		name = "tailwind-tools",
+		build = ":UpdateRemotePlugins",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-telescope/telescope.nvim", -- optional
+			"neovim/nvim-lspconfig", -- optional
+		},
+		opts = {}, -- your configuration
+	},
 }
