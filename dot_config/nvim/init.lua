@@ -584,7 +584,7 @@ require("lazy").setup({
 			local servers = {
 				pyright = {},
 				emmet_language_server = {},
-				css_ls = {},
+				css_lsp = {},
 				-- clangd = {},
 				-- gopls = {},
 				-- rust_analyzer = {},
