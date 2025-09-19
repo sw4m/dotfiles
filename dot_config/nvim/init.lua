@@ -655,6 +655,7 @@ require("lazy").setup({
 			end
 		end,
 	},
+
 	{ -- Autoformat
 		"stevearc/conform.nvim",
 		-- event = { "BufWritePre" },
