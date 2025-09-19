@@ -583,10 +583,9 @@ require("lazy").setup({
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
 				pyright = {},
-				emmet_language_server = {
-          filetypes = {"html", "blade", "php", "jsx", "tsx"}
+				emmet_ls = {
+          filetypes = {"blade", "html", "php"}
         },
-        
 				cssls = {
           capabilities = capabilities,
           filetypes = {"css", "scss", "less", "html", "php", "blade"}
@@ -596,7 +595,6 @@ require("lazy").setup({
           filetypes = {"html", "twig", "hbs", "handlebars", "php", "blade", "tsx", "jsx"}
         },
         tailwindcss = {},
-        
 				-- clangd = {},
 				-- gopls = {},
 				-- rust_analyzer = {},
