@@ -827,7 +827,21 @@ require("lazy").setup({
 			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
-			require("mini.surround").setup()
+			require("mini.surround").setup({
+				custom_surroundings = {
+					T = {
+						input = { "<(%w+)[^<>]->.-</%1>", "^<()%w+().*</()%w+()>$" },
+						output = function()
+							local tag_name = MiniSurround.user_input("Tag name")
+							if tag_name == nil then
+								return nil
+							end
+							return { left = tag_name, right = tag_name }
+						end,
+					},
+				},
+			})
+
 			local animate = require("mini.animate")
 			animate.setup({
 				cursor = {
