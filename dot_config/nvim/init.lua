@@ -623,14 +623,13 @@ require("lazy").setup({
 			-- other tools, you can run
 			--    :Mason
 			--
-			-- You can press `g?` for help in this menu.
-			--
 			-- `mason` had to be setup earlier: to configure its options see the
 			-- `dependencies` table for `nvim-lspconfig` above.
 			--
 			-- You can add other tools here that you want Mason to install
 			-- for you, so that they are available from within Neovim.
 			local ensure_installed = vim.tbl_keys(servers.mason or {})
+
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
 			})
@@ -640,7 +639,7 @@ require("lazy").setup({
 			-- to the default language server configs as provided by nvim-lspconfig or
 			-- define a custom server config that's unavailable on nvim-lspconfig.
 			for server, config in pairs(vim.tbl_extend("keep", servers.mason, servers.others)) do
-				if vim.fn.empty(config) ~= 1 then
+				if not vim.tbl_isempty(config) then
 					vim.lsp.config(server, config)
 				end
 			end
@@ -650,7 +649,8 @@ require("lazy").setup({
 				ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
 				automatic_enable = true,
 			}) -- Manually run vim.lsp.enable for all language servers that are *not* installed via Mason
-			if vim.fn.empty(servers.others) ~= 1 then
+
+			if not vim.tbl_isempty(servers.others) then
 				vim.lsp.enable(vim.tbl_keys(servers.others))
 			end
 		end,
