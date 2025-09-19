@@ -635,7 +635,7 @@ require("lazy").setup({
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-			-- Either merge all additional server configs from the `servers.mason` and `servers.others` tables
+			-- Either merge all additional server configs from the `servers.mason` and `servers.other` tables
 			-- to the default language server configs as provided by nvim-lspconfig or
 			-- define a custom server config that's unavailable on nvim-lspconfig.
 			for server, configuration in pairs(vim.tbl_extend("keep", servers.mason, servers.other)) do
@@ -650,8 +650,8 @@ require("lazy").setup({
 				automatic_enable = true,
 			}) -- Manually run vim.lsp.enable for all language servers that are *not* installed via Mason
 
-			if not vim.tbl_isempty(servers.others) then
-				vim.lsp.enable(vim.tbl_keys(servers.others))
+			if not vim.tbl_isempty(servers.other) then
+				vim.lsp.enable(vim.tbl_keys(servers.other))
 			end
 		end,
 	},
