@@ -638,7 +638,7 @@ require("lazy").setup({
 			-- Either merge all additional server configs from the `servers.mason` and `servers.others` tables
 			-- to the default language server configs as provided by nvim-lspconfig or
 			-- define a custom server config that's unavailable on nvim-lspconfig.
-			for server, configuration in pairs(vim.tbl_extend("keep", servers.mason, servers.others)) do
+			for server, configuration in pairs(vim.tbl_extend("keep", servers.mason, servers.other)) do
 				if not vim.tbl_isempty(configuration) then
 					vim.lsp.config(server, configuration)
 				end
