@@ -572,55 +572,49 @@ require("lazy").setup({
 			--  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-			-- Enable the following language servers
-			--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-			--
-			--  Add any additional override configuration in the following tables. Available keys are:
-			--  - cmd (table): Override the default command used to start the server
-			--  - filetypes (table): Override the default list of associated filetypes for the server
-			--  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
-			--  - settings (table): Override the default settings passed when initializing the server.
-			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
-				pyright = {},
-				emmet_language_server = {
-          filetypes = {"blade", "html", "php"}
-        },
-				cssls = {
-          capabilities = capabilities,
-          filetypes = {"css", "scss", "less", "html", "php", "blade"}
-        },
-        html = {
-          capabilities = capabilities,
-          filetypes = {"html", "twig", "hbs", "handlebars", "php", "blade", "tsx", "jsx"}
-        },
-        tailwindcss = {},
-				-- clangd = {},
-				-- gopls = {},
-				-- rust_analyzer = {},
-				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-				--
-				-- Some languages (like typescript) have entire language plugins that can be useful:
-				--    https://github.com/pmizio/typescript-tools.nvim
-				--
-				-- But for many setups, the LSP (`ts_ls`) will work just fine
-				-- ts_ls = {},
-				--
+				mason = {
+					pyright = {},
+					emmet_language_server = {
+						filetypes = { "blade", "html", "php" },
+					},
+					cssls = {
+						capabilities = capabilities,
+						filetypes = { "css", "scss", "less", "html", "php", "blade" },
+					},
+					html = {
+						capabilities = capabilities,
+						filetypes = { "html", "twig", "hbs", "handlebars", "php", "blade", "tsx", "jsx" },
+					},
+					tailwindcss = {},
+					-- clangd = {},
+					-- gopls = {},
+					-- rust_analyzer = {},
+					-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
+					--
+					-- Some languages (like typescript) have entire language plugins that can be useful:
+					--    https://github.com/pmizio/typescript-tools.nvim
+					--
+					-- But for many setups, the LSP (`ts_ls`) will work just fine
+					-- ts_ls = {},
+					--
 
-				lua_ls = {
-					-- cmd = { ... },
-					-- filetypes = { ... },
-					-- capabilities = {},
-					settings = {
-						Lua = {
-							completion = {
-								callSnippet = "Replace",
+					lua_ls = {
+						-- cmd = { ... },
+						-- filetypes = { ... },
+						-- capabilities = {},
+						settings = {
+							Lua = {
+								completion = {
+									callSnippet = "Replace",
+								},
+								-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+								-- diagnostics = { disable = { 'missing-fields' } },
 							},
-							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
 						},
 					},
 				},
+				other = {},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -636,26 +630,29 @@ require("lazy").setup({
 			--
 			-- You can add other tools here that you want Mason to install
 			-- for you, so that they are available from within Neovim.
-			local ensure_installed = vim.tbl_keys(servers or {})
+			local ensure_installed = vim.tbl_keys(servers.mason or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
+			-- Either merge all additional server configs from the `servers.mason` and `servers.others` tables
+			-- to the default language server configs as provided by nvim-lspconfig or
+			-- define a custom server config that's unavailable on nvim-lspconfig.
+			for server, config in pairs(vim.tbl_extend("keep", servers.mason, servers.others)) do
+				if vim.fn.empty(config) ~= 1 then
+					vim.lsp.config(server, config)
+				end
+			end
+
+			-- After configuring our language servers, we now enable them
 			require("mason-lspconfig").setup({
 				ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-				automatic_installation = false,
-				handlers = {
-					function(server_name)
-						local server = servers[server_name] or {}
-						-- This handles overriding only values explicitly passed
-						-- by the server configuration above. Useful when disabling
-						-- certain features of an LSP (for example, turning off formatting for ts_ls)
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-				},
-			})
+				automatic_enable = true,
+			}) -- Manually run vim.lsp.enable for all language servers that are *not* installed via Mason
+			if vim.fn.empty(servers.others) ~= 1 then
+				vim.lsp.enable(vim.tbl_keys(servers.others))
+			end
 		end,
 	},
 
