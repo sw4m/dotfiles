@@ -57,6 +57,9 @@ return {
 			{ "nvim-lua/plenary.nvim", branch = "master" },
 		},
 		build = "make tiktoken",
+    keys = {
+												{"<leader>co", "<cmd>CopilotChatOpen<cr>", desc = "Open Copilot Chat"}
+								},
 		opts = {
 			-- See Configuration section for options
 		},
