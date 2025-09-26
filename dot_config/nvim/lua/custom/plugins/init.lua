@@ -142,4 +142,7 @@ return {
 		cmd = { "LiveServerStart", "LiveServerStop" },
 		config = true,
 	},
+				{
+								'pixelneo/vim-python-docstring'
+				}
 }
