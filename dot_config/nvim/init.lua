@@ -148,10 +148,10 @@ rtp:prepend(lazypath)
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	{
-  
+
 		"Darazaki/indent-o-matic",
 		opts = {
-			standard_widths = { 2, 4 },
+			standart_widths = { 2, 4 },
 		},
 	},
 	-- NOTE: Plugins can also be added by using a table,
