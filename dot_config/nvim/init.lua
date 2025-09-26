@@ -151,7 +151,7 @@ require("lazy").setup({
 
 		"Darazaki/indent-o-matic",
 		opts = {
-			standart_widths = { 2, 4 },
+			standard_widths = { 2, 4 },
 		},
 	},
 	-- NOTE: Plugins can also be added by using a table,
