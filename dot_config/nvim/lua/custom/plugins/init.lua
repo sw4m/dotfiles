@@ -144,5 +144,9 @@ return {
 	},
 				{
 								'pixelneo/vim-python-docstring'
+				},
+				{
+    "mcauley-penney/tidy.nvim",
+    config = true,
 				}
 }
