@@ -659,7 +659,7 @@ require("lazy").setup({
 
 	{ -- Autoformat
 		"stevearc/conform.nvim",
-		-- event = { "BufWritePre" },
+		event = { "BufWritePre" },
 		cmd = { "ConformInfo" },
 		keys = {
 			{
@@ -677,10 +677,10 @@ require("lazy").setup({
 				lua = { "stylua" },
         html = { "prettierd", "prettier", stop_after_first = true },
 				--Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
+				python = { "isort", "black" },
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
-				-- javascript = { "prettierd", "prettier", stop_after_first = true },
+				javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
 		},
 	},
@@ -764,9 +764,16 @@ require("lazy").setup({
 			},
 
 			sources = {
-				default = { "lsp", "path", "snippets", "lazydev", "copilot" },
+				default = { "buffer", "lsp", "path", "snippets", "lazydev", "copilot" },
+        per_filetype = {
+          sql = { "dadbod"}
+        },
 				providers = {
 					lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
+          dadbod = {
+            name = "Dadbod",
+            module = "vim_dadbod_completion.blink"
+          },
 					copilot = {
 						name = "copilot",
 						module = "blink-copilot",
