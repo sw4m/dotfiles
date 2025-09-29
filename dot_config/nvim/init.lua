@@ -588,7 +588,7 @@ require("lazy").setup({
 						filetypes = { "html", "twig", "hbs", "handlebars", "php", "blade", "tsx", "jsx" },
 					},
 					tailwindcss = {},
-					-- clangd = {},
+          clangd = {},
 					-- gopls = {},
 					-- rust_analyzer = {},
 					-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
