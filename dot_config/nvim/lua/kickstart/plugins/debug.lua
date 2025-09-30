@@ -137,7 +137,7 @@ return {
 
     dap.listeners.before.event_initialized['dapui_config'] = dapui.open
     dap.configurations.c = {{
-      type = "cpptools",
+      type = "cppdbg",
       request = "launch",
       name = "Launch file",
     }}
