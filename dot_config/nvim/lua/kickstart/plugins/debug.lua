@@ -136,6 +136,11 @@ return {
     end
 
     dap.listeners.before.event_initialized['dapui_config'] = dapui.open
+    dap.configurations.c = {
+      type = "cpptools",
+      request = "launch",
+      name = "Launch file",
+    }
 
     -- Install golang specific config
     require('dap-go').setup {
@@ -147,9 +152,5 @@ return {
     }
 
     require('dap-python').setup 'python3'
-    dap.adapters.cppdbg = {
-      id = 'cppdbg',
-      type = 'executable',
-    }
   end,
 }
