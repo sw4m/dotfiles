@@ -1,4 +1,4 @@
--- debug.lua
+ -- (Optional, to dispose all tasks before redo)-- debug.lua
 --
 -- Shows how to use the DAP plugin to debug your code.
 --
