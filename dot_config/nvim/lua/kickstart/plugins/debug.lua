@@ -156,7 +156,8 @@ return {
 				program = function()
 					return vim.fn.expand("%:p:r")
 				end,
-
+				cwd = "${workspaceFolder}",
+				stopAtEntry = true,
 			},
 		}
 		dap.adapters.cppdbg = {
