@@ -154,8 +154,9 @@ return {
 				request = "launch",
 				name = "Launch file",
 				program = function()
-					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					return vim.fn.expand("%:p:r")
 				end,
+
 			},
 		}
 		dap.adapters.cppdbg = {
