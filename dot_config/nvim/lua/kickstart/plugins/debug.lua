@@ -163,7 +163,6 @@ return {
 		dap.adapters.cppdbg = {
 			id = "codelldb",
 			type = "executable",
-			command = "/home/sw4m/.local/share/nvim/mason/bin/OpenDebugAD7",
 		}
 		-- Install golang specific config
 		require("dap-go").setup({
