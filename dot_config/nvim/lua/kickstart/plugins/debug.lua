@@ -148,6 +148,16 @@ return {
 		end
 
 		dap.listeners.before.event_initialized["dapui_config"] = dapui.open
+
+		dap.adapters.codelldb = {
+			type = "server",
+			port = "${port}",
+			executable = {
+				command = "codelldb", -- Mason should’ve installed this
+				args = { "--port", "${port}" },
+			},
+		}
+
 		dap.configurations.c = {
 			{
 				type = "codelldb",
@@ -159,10 +169,6 @@ return {
 				cwd = "${workspaceFolder}",
 				stopAtEntry = true,
 			},
-		}
-		dap.adapters.cppdbg = {
-			id = "codelldb",
-			type = "executable",
 		}
 		-- Install golang specific config
 		require("dap-go").setup({
