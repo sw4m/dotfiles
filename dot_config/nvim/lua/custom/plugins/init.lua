@@ -190,7 +190,7 @@ return {
 			)
 
 			-- Toggle compiler results
-			vim.api.nvim_set_keymap("n", "<S-F7>", "<cmd>CompilerToggleResults<cr>", { noremap = true, silent = true })
+			vim.api.nvim_set_keymap("n", "<F3>", "<cmd>CompilerToggleResults<cr>", { noremap = true, silent = true })
 		end,
 	},
 	{ -- The task runner we use
