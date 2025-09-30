@@ -97,7 +97,7 @@ return {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
         'debugpy',
-        'codellb'
+        'cpptools'
       },
     }
 
@@ -145,6 +145,11 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+
     require('dap-python').setup 'python3'
+    dap.adapters.cppdbg = {
+      id = 'cppdbg',
+      type = 'executable',
+    }
   end,
 }
