@@ -148,11 +148,16 @@ return {
 		end
 
 		dap.listeners.before.event_initialized["dapui_config"] = dapui.open
-		dap.configurations.c = { {
-			type = "cppdbg",
-			request = "launch",
-			name = "Launch file",
-		} }
+		dap.configurations.c = {
+			{
+				type = "cppdbg",
+				request = "launch",
+				name = "Launch file",
+				program = function()
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+				end,
+			},
+		}
 		dap.adapters.cppdbg = {
 			id = "cppdbg",
 			type = "executable",
