@@ -97,7 +97,7 @@ return {
 				-- Update this to ensure that you have the debuggers for the langs you want
 				"delve",
 				"debugpy",
-				"cppdbg",
+				"codelldb",
 			},
 		})
 
@@ -150,7 +150,7 @@ return {
 		dap.listeners.before.event_initialized["dapui_config"] = dapui.open
 		dap.configurations.c = {
 			{
-				type = "cppdbg",
+				type = "codelldb",
 				request = "launch",
 				name = "Launch file",
 				program = function()
@@ -161,7 +161,7 @@ return {
 			},
 		}
 		dap.adapters.cppdbg = {
-			id = "cppdbg",
+			id = "codelldb",
 			type = "executable",
 			command = "/home/sw4m/.local/share/nvim/mason/bin/OpenDebugAD7",
 		}
