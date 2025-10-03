@@ -171,11 +171,20 @@ return {
 			vim.g.db_ui_use_nerd_fonts = 1
 		end,
 	},
-	{ -- This plugin
+	{
 		"Zeioth/compiler.nvim",
 		cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
 		dependencies = { "stevearc/overseer.nvim", "nvim-telescope/telescope.nvim" },
-		opts = {},
+		opts = {
+			tasks = {
+				c = {
+					{
+						name = "Make and Run",
+						cmd = { "make", "&&", "./main" },
+					},
+				},
+			},
+		},
 		init = function()
 			-- Open compiler
 			vim.api.nvim_set_keymap("n", "<F6>", "<cmd>CompilerOpen<cr>", { noremap = true, silent = true })
@@ -184,8 +193,7 @@ return {
 			vim.api.nvim_set_keymap(
 				"n",
 				"<S-F6>",
-				"<cmd>CompilerStop<cr>"
-					.. "<cmd>CompilerRedo<cr>",
+				"<cmd>CompilerStop<cr>" .. "<cmd>CompilerRedo<cr>",
 				{ noremap = true, silent = true }
 			)
 
@@ -193,7 +201,7 @@ return {
 			vim.api.nvim_set_keymap("n", "<F3>", "<cmd>CompilerToggleResults<cr>", { noremap = true, silent = true })
 		end,
 	},
-	{ -- The task runner we use
+	{
 		"stevearc/overseer.nvim",
 		commit = "6271cab7ccc4ca840faa93f54440ffae3a3918bd",
 		cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
