@@ -101,13 +101,7 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 
--- Buffer Keymaps
 
-vim.keymap.set('n', '<C-b>q', '<cmd>bd<CR>', { desc = 'Close buffer' })
-vim.keymap.set('n', '<C-b>n', '<cmd>bl<CR>', { desc = 'Next buffer' })
-vim.keymap.set('n', '<C-b>p', '<cmd>bh<CR>', { desc = 'Previous buffer' })
-
--- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
@@ -577,9 +571,6 @@ require("lazy").setup({
 			local servers = {
 				mason = {
 					pyright = {},
-					emmet_language_server = {
-						filetypes = { "blade", "html", "php" },
-					},
 					cssls = {
 						capabilities = capabilities,
 						filetypes = { "css", "scss", "less", "html", "php", "blade" },
@@ -590,16 +581,6 @@ require("lazy").setup({
 					},
 					tailwindcss = {},
           clangd = {},
-					-- gopls = {},
-					-- rust_analyzer = {},
-					-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-					--
-					-- Some languages (like typescript) have entire language plugins that can be useful:
-					--    https://github.com/pmizio/typescript-tools.nvim
-					--
-					-- But for many setups, the LSP (`ts_ls`) will work just fine
-					-- ts_ls = {},
-					--
 
 					lua_ls = {
 						-- cmd = { ... },
