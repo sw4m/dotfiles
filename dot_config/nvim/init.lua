@@ -101,7 +101,6 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 
-
 --  See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
@@ -580,7 +579,7 @@ require("lazy").setup({
 						filetypes = { "html", "twig", "hbs", "handlebars", "php", "blade", "tsx", "jsx" },
 					},
 					tailwindcss = {},
-          clangd = {},
+					clangd = {},
 
 					lua_ls = {
 						-- cmd = { ... },
@@ -657,7 +656,7 @@ require("lazy").setup({
 			notify_on_error = true,
 			formatters_by_ft = {
 				lua = { "stylua" },
-        html = { "prettierd", "prettier", stop_after_first = true },
+				html = { "prettierd", "prettier", stop_after_first = true },
 				--Conform can also run multiple formatters sequentially
 				python = { "isort", "black" },
 				--
@@ -746,21 +745,56 @@ require("lazy").setup({
 			},
 
 			sources = {
-				default = { "buffer", "lsp", "path", "snippets", "lazydev", "copilot" },
-        per_filetype = {
-          sql = { "dadbod"}
-        },
+				default = {
+					"avante_commands",
+					"avante_mentions",
+					"avante_shortcuts",
+					"avante_files",
+					"buffer",
+					"lsp",
+					"path",
+					"snippets",
+					"lazydev",
+					"copilot",
+				},
+				per_filetype = {
+					sql = { "dadbod" },
+				},
 				providers = {
 					lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
-          dadbod = {
-            name = "Dadbod",
-            module = "vim_dadbod_completion.blink"
-          },
+					dadbod = {
+						name = "Dadbod",
+						module = "vim_dadbod_completion.blink",
+					},
 					copilot = {
 						name = "copilot",
 						module = "blink-copilot",
 						score_offset = 100,
 						async = true,
+					},
+					avante_commands = {
+						name = "avante_commands",
+						module = "blink.compat.source",
+						score_offset = 90, -- show at a higher priority than lsp
+						opts = {},
+					},
+					avante_files = {
+						name = "avante_files",
+						module = "blink.compat.source",
+						score_offset = 100, -- show at a higher priority than lsp
+						opts = {},
+					},
+					avante_mentions = {
+						name = "avante_mentions",
+						module = "blink.compat.source",
+						score_offset = 1000, -- show at a higher priority than lsp
+						opts = {},
+					},
+					avante_shortcuts = {
+						name = "avante_shortcuts",
+						module = "blink.compat.source",
+						score_offset = 1000, -- show at a higher priority than lsp
+						opts = {},
 					},
 				},
 			},

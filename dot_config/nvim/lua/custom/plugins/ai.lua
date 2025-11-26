@@ -34,28 +34,22 @@ return {
 		opts = {
 			-- this file can contain specific instructions for your project
 			instructions_file = "avante.md",
-				file_selector = "yazi",
-				
-			provider = "claude",
-			providers = {
-				claude = {
-					endpoint = "https://api.anthropic.com",
-					model = "claude-sonnet-4-20250514",
-					timeout = 30000, -- Timeout in milliseconds
-					extra_request_body = {
-						temperature = 0.75,
-						max_tokens = 20480,
-					},
+			file_selector = "yazi",
+			provider = "copilot",
+			providers = {},
+			input = {
+				provider = "snacks",
+				provider_opts = {
+					title = "Avante Input",
+					icon = " ",
 				},
-				moonshot = {
-					endpoint = "https://api.moonshot.ai/v1",
-					model = "kimi-k2-0711-preview",
-					timeout = 30000, -- Timeout in milliseconds
-					extra_request_body = {
-						temperature = 0.75,
-						max_tokens = 32768,
-					},
-				},
+			},
+			selector = {
+				--- @alias avante.SelectorProvider "native" | "fzf_lua" | "mini_pick" | "snacks" | "telescope" | fun(selector: avante.ui.Selector): nil
+				--- @type avante.SelectorProvider
+				provider = "telescope",
+				-- Options override for custom providers
+				provider_opts = {},
 			},
 		},
 		dependencies = {
@@ -64,7 +58,6 @@ return {
 			--- The below dependencies are optional,
 			"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
 			"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-			"stevearc/dressing.nvim", -- for input provider dressing
 			"folke/snacks.nvim", -- for input provider snacks
 			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
 			"zbirenbaum/copilot.lua", -- for providers='copilot'
