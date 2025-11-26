@@ -4,7 +4,7 @@ return {
 		lazy = false,
 		config = function()
 			require("themery").setup({
-				themes = { "nordic", "vague", "cyberdream", "oxocarbon", "nightfox" }, -- Your list of installed colorschemes.
+				themes = { "rose-pine", "dawnfox", "nordfox", "terafox", "nordic", "vague", "cyberdream", "oxocarbon", "nightfox" }, -- Your list of installed colorschemes.
 				livePreview = true, -- Apply theme while picking. Default to true.
 			})
 		end,
@@ -16,6 +16,7 @@ return {
 		config = function()
 			require("nordic").load({})
 		end,
+	},
 	{
 		"vague-theme/vague.nvim",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
@@ -29,5 +30,5 @@ return {
 	},
 	{ "EdenEast/nightfox.nvim" },
 	{ "nyoom-engineering/oxocarbon.nvim" },
-	},
+				{ "rose-pine/neovim", name = "rose-pine"}
 }
