@@ -745,7 +745,7 @@ require("lazy").setup({
 			},
 
 			sources = {
-				-- default = {
+				default = {
 				-- 	"avante_commands",
 				-- 	"avante_mentions",
 				-- 	"avante_shortcuts",
