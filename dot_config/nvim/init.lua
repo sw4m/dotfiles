@@ -745,11 +745,11 @@ require("lazy").setup({
 			},
 
 			sources = {
-				default = {
-					"avante_commands",
-					"avante_mentions",
-					"avante_shortcuts",
-					"avante_files",
+				-- default = {
+				-- 	"avante_commands",
+				-- 	"avante_mentions",
+				-- 	"avante_shortcuts",
+				-- 	"avante_files",
 					"buffer",
 					"lsp",
 					"path",
