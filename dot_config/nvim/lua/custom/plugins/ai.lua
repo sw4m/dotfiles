@@ -38,7 +38,7 @@ return {
 			provider = "copilot",
 			providers = {},
 			input = {
-				provider = "snacks",
+				provider = "native",
 				provider_opts = {
 					title = "Avante Input",
 					icon = " ",
