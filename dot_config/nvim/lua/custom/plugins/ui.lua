@@ -66,6 +66,8 @@ return {
 			"nvim-lua/plenary.nvim",
 		},
 		config = function()
+			local alpha = require("alpha")
+			local dashboard = require("alpha.themes.dashboard")
 			require("alpha").setup(require("alpha.themes.theta").config)
 		end,
 	},
