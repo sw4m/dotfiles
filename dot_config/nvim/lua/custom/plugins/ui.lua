@@ -85,6 +85,9 @@ return {
 		---@type snacks.Config
 		opts = {
 			terminal = {},
+			dim = {},
+			input = {},
 		},
 	},
+	{ "sindrets/diffview.nvim" },
 }
