@@ -104,7 +104,7 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
-
+vim.keymap.set("n", "<leader>w", "<cmd>w<CR>")
 --  See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
@@ -665,7 +665,7 @@ require("lazy").setup({
 				python = { "isort", "black" },
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
-				javascript = { "prettierd", "prettier", stop_after_first = true },
+				javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
 			},
 		},
 	},
