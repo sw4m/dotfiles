@@ -1,5 +1,5 @@
 return {
-        -- Typescript
+	-- Typescript
 	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },

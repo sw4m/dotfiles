@@ -73,7 +73,10 @@ return {
 	},
 	{
 		"wvffle/vimterm",
-		opts = {},
+				
+		config = function()
+												return
+				end,
 		keys = {
 			"<f2>",
 			mode = { "n", "v", "i" },

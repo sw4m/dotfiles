@@ -8,8 +8,16 @@ EDITOR='nvim'
 setopt autocd
 bindkey -v
 
-#Mcfly
-eval "$(mcfly init zsh)"
+# pnpm
+export PNPM_HOME="/home/sw4m/.local/share/pnpm"
+export NODE_PATH="/usr/lib/node_modules/npm/"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
 source /usr/share/zsh-antidote/antidote.zsh 
 antidote load
 
@@ -80,11 +88,4 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 alias ce="chezmoi edit"
 
 alias n="nvim"
-# pnpm
-export PNPM_HOME="/home/sw4m/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+eval "$(mcfly init zsh)"

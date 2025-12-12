@@ -573,14 +573,15 @@ require("lazy").setup({
 
 			local servers = {
 				mason = {
+					emmet_ls = {},
 					pyright = {},
 					cssls = {
 						capabilities = capabilities,
-						filetypes = { "css", "scss", "less", "html", "php", "blade" },
+						filetypes = { "html", "css", "scss", "less", "html", "php", "blade" },
 					},
 					html = {
 						capabilities = capabilities,
-						filetypes = { "html", "twig", "hbs", "handlebars", "php", "blade", "tsx", "jsx" },
+						filetypes = { "html", "twig", "php", "blade", "tsx", "jsx" },
 					},
 					tailwindcss = {},
 					clangd = {},
@@ -661,9 +662,9 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				html = { "prettierd", "prettier", stop_after_first = true },
+        json = {"jsonlint"},
 				--Conform can also run multiple formatters sequentially
 				python = { "isort", "black" },
-				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
 				javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
 			},
@@ -784,6 +785,7 @@ require("lazy").setup({
 						score_offset = 100,
 						async = true,
 					},
+
 					avante_commands = {
 						name = "avante_commands",
 						module = "blink.compat.source",
