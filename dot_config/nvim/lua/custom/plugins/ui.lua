@@ -68,15 +68,16 @@ return {
 		config = function()
 			local alpha = require("alpha")
 			local dashboard = require("alpha.themes.dashboard")
-			require("alpha").setup(require("alpha.themes.theta").config)
+			alph.setup(require("alpha.themes.theta").config)
 		end,
 	},
 	{
 		"wvffle/vimterm",
-				
-		config = function()
-												return
-				end,
+    lazy = true,
+    init = function ()
+				local vimterm = require("vimterm")
+				vimterm.config()
+   end,
 		keys = {
 			"<f2>",
 			mode = { "n", "v", "i" },
