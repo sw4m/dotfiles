@@ -68,7 +68,7 @@ return {
 		config = function()
 			local alpha = require("alpha")
 			local dashboard = require("alpha.themes.dashboard")
-			alph.setup(require("alpha.themes.theta").config)
+			alpha.setup(require("alpha.themes.theta").config)
 		end,
 	},
 	{
