@@ -73,11 +73,10 @@ return {
 	},
 	{
 		"wvffle/vimterm",
-    lazy = true,
-    init = function ()
-				local vimterm = require("vimterm")
-				vimterm.config()
-   end,
+		lazy = true,
+		init = function()
+			vim.cmd("call terminal#start()")
+		end,
 		keys = {
 			"<f2>",
 			mode = { "n", "v", "i" },
